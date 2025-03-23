@@ -1,0 +1,34 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "volta": {
+    "node": "22.14.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
+    "@storybook/addon-a11y": "^8.6.8",
+    "@storybook/addon-essentials": "^8.6.8",
+    "@storybook/addon-interactions": "^8.6.8",
+    "@storybook/addon-onboarding": "^8.6.8",
+    "@storybook/blocks": "^8.6.8",
+    "@storybook/react": "^8.6.8",
+    "@storybook/react-vite": "^8.6.8",
+    "@storybook/test": "^8.6.8",
+    "@types/node": "^22.13.11",
+    "@whitespace/storybook-addon-html": "^6.1.1",
+    "prettier": "^3.5.3",
+    "prop-types": "^15.8.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "storybook": "^8.6.8"
+  }
+}

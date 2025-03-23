@@ -1,0 +1,11 @@
+node_modules
+_old
+.env
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+*.lnk
+*.log
+.git
