@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "storybook-guide",
   "version": "1.0.0",
   "description": "",
-  "license": "ISC",
+  "license": "MIT",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
