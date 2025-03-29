@@ -1,0 +1,128 @@
+.button {
+  --button-rounded-text: #fff;
+  --button-rounded-bg-color: #000;
+  --button-rounded-border-color: #000;
+  --button-rounded-hover-text: #fff;
+  --button-rounded-hover-bg-color: #000;
+  --button-rounded-hover-border-color: #000;
+  --button-rounded-fontsize: 14px;
+  --button-rounded-padding-block: 11px;
+  --button-rounded-padding-inline: 20px;
+  --button-rounded-gap: 10px;
+  --button-rounded-icon-fontsize: 14px;
+  --button-rounded-icon-content: none;
+  --button-rounded-file-fontsize: 18px;
+  --button-rounded-file-content: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 3em;
+  font-weight: 700;
+  line-height: 1.5;
+  font-family: 'Noto Sans JP', Helvetica, Arial, sans-serif;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+
+  font-size: var(--button-rounded-fontsize);
+  padding: var(--button-rounded-padding-block) var(--button-rounded-padding-inline);
+  gap: var(--button-rounded-gap);
+  color: var(--button-rounded-text);
+  background-color: var(--button-rounded-bg-color);
+  border: 1px solid var(--button-rounded-border-color);
+
+  &:hover{
+    color: var(--button-rounded-hover-text);
+    background-color: var(--button-rounded-hover-bg-color);
+    border-color: var(--button-rounded-hover-border-color);
+  }
+  &::before, &::after{
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    color: currentColor;
+  }
+  &::before{
+    content: var(--button-rounded-icon-content);
+    font-size: var(--button-rounded-icon-fontsize);
+  }
+  &::after{
+    content: var(--button-rounded-file-content);
+    font-size: var(--button-rounded-file-fontsize);
+  }
+
+  /* style */
+  &.-fill {
+    --button-rounded-text: #fff;
+    --button-rounded-bg-color: #000;
+    --button-rounded-border-color: #000;
+    --button-rounded-hover-text: #000;
+    --button-rounded-hover-bg-color: transparent;
+    --button-rounded-hover-border-color: #000;
+    &.-white{
+      --button-rounded-text: #000;
+      --button-rounded-bg-color: #fff;
+      --button-rounded-border-color: #fff;
+      --button-rounded-hover-text: #fff;
+      --button-rounded-hover-border-color: #fff;
+    }
+  }
+  &.-outline {
+    --button-rounded-text: #000;
+    --button-rounded-bg-color: transparent;
+    --button-rounded-border-color: #000;
+    --button-rounded-hover-text: #fff;
+    --button-rounded-hover-bg-color: #000;
+    --button-rounded-hover-border-color: #000;
+    &.-white{
+      --button-rounded-text: #fff;
+      --button-rounded-border-color: #fff;
+      --button-rounded-hover-text: #000;
+      --button-rounded-hover-bg-color: #fff;
+      --button-rounded-hover-border-color: #fff;
+    }
+  }
+
+  /* size */
+  &.-sm {
+    --button-rounded-fontsize: 12px;
+    --button-rounded-padding-block: 10px;
+    --button-rounded-padding-inline: 16px;
+  }
+  &.-md {
+    --button-rounded-fontsize: 14px;
+    --button-rounded-padding-block: 11px;
+    --button-rounded-padding-inline: 20px;
+  }
+  &.-lg {
+    --button-rounded-fontsize: 16px;
+    --button-rounded-padding-block: 12px;
+    --button-rounded-padding-inline: 24px;
+  }
+
+  /* icon */
+  &.-book::before{
+    --button-rounded-icon-content: '\e0e0';
+    --button-rounded-icon-fontsize: 18px;
+  }
+  &.-doc::before{
+    --button-rounded-icon-content: '\e873';
+  }
+  &.-search::before{
+    --button-rounded-icon-content: '\e8b6';
+  }
+
+  /* file */
+  &.-zip::after{
+    --button-rounded-file-content: '\eb2c';
+  }
+  &.-pdf::after{
+    --button-rounded-file-content: '\e415';
+  }
+  &.-external::after{
+    --button-rounded-file-content: '\e89e';
+  }
+}
+
