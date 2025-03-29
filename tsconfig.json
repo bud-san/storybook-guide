@@ -5,7 +5,8 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@stories/*": ["./stories/*"]
+      "@stories/*": ["./src/stories/*"],
+      "@utility/*": ["./src/utility/*"]
     }
   }
 }

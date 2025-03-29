@@ -1,0 +1,110 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Overview" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # このStorybookの運用ルール
+
+    - 流用しやすいように切り離しやすい作りにする
+    - 動きがあるパーツ以外でライブラリは極力使わない
+    - React製だけどhtmlでも見えるようにする（`@whitespace/storybook-addon-html`）
+    - ここではcssの衝突を気にしなくても良いので、汎用的且つ簡易なクラス名で作るようにする
+    - 優先度は低いが、念の為アクセシビリティのアドオンも入れて質も担保しておく（`@storybook/addon-a11y`）
+    - できるだけcss変数でパターンを追加しやすくする
+  </div>
+</div>
+<div className="sb-container">
+  # 各パーツ作成時の注意事項
+
+  <div className="sb-section">
+    <div className="sb-section-item">
+      <h3 className="sb-section-item-heading">テキスト系</h3>
+      - spanなどで一部テキストに装飾を入れる場合、改行に対応可能かどうかのルールを明確にすること
+      - headline系、dl系タグ以下にはブロック系タグを入れないこと
+        - WYSIWYG挿入時に整形されて、崩れが発生するおそれがあるため
+      - リンクが入ることも考慮すること
+        - リンクが入る場合はファイルアイコンが入ることも考慮すること
+    </div>
+    <div className="sb-section-item">
+      <h3 className="sb-section-item-heading">リスト系</h3>
+      - 改行しても余白のバランスが保たれるようにすること
+      - 入れ子リストに対応すること
+      - ul > ol や ol > ul にも対応すること
+        - olは数字が変にリセットされないように注意すること
+      - olは番号の桁数が増えても崩れないようにすること
+        - 最低限2桁には対応する
+    </div>
+    <div className="sb-section-item">
+      <h3 className="sb-section-item-heading">ボタン系</h3>
+      - 汎用的なボタンの場合はaタグ、buttonタグの両方で適用できるようにすること
+      - アイコン付与に関するルールを明確にすること
+        - 飛び先のページ内容を示すアイコンの必要性
+        - 飛び先の種類を示すアイコン（=ファイルアイコン）の必要性
+        - アンカーリンク（ページ内リンク）対応かどうか
+      - 改行に原則対応すること
+        - 対応できない場合は、文字数のルールを明確にすること
+      - タブで操作時アウトラインが出るようにすること
+      - クリック時はホバー効果が残らないようにすること
+      - 無効にする場合はdisabled属性ではなくaria-disabledを使うこと
+        - disabled属性だとタブでフォーカスできなくなるため
+    </div>
+    <div className="sb-section-item">
+      <h3 className="sb-section-item-heading">画像系</h3>
+      - 過剰に大きいサイズの画像でも比率を保ちつつ最適なサイズにおさまるようにすること
+      - 白背景の画像だった場合、境界線は画像側でいれないでcss側で対応できると尚良し
+      - youtubeやgooglemapのような埋め込みも対応できるようにすること
+      - キャプションをいれる場合は文字数の許容範囲を決めておくこと
+      - キャプションの配置・文字数と画像サイズによるバランスの質を保つようにすること
+      - リンクが入ることも考慮すること
+      - 画面サイズによって切り替える場合も考慮すること
+    </div>
+    <div className="sb-section-item">
+      <h3 className="sb-section-item-heading">テーブル系</h3>
+      - colspan、またはrowspanを使用するテーブルになるかどうかを確認すること
+      - レスポンシブ対応の方法を検討すること
+        - 横スクロールを有効にする
+        - th、tdを縦並びにする（1列目th、2列目tdであることが条件） etc.
+      - thが入る場所を想定しておくこと
+      - テーブル内にタグをさらに入れられるようにすること
+        - 見出し
+        - リスト etc.
+      - 1列目がthの場合、横幅が極端に狭くならないようにすること
+        - あるいは、特定のクラスで横幅が揃うようにするなどの措置をすること
+    </div>
+    <div className="sb-section-item">
+      <h3 className="sb-section-item-heading">フォーム系</h3>
+      - テキスト入力系のタグではフォントサイズの最低値を16pxにすること
+        - iphoneで入力時にズームされる現象が起こるため
+      - placeholderはラベル・例文の記入場所としないこと
+      - 任意・必須項目の各項目のスタイルに対応できるようにすること
+      - エラー文が複数入ることを考慮すること（あるいは複数行）
+      - キーボード操作のみで入力していけるようにすること
+        - タブキーによる項目間の移動
+        - チェックボックス・ラジオボタンの入力
+      - 入力する内容を制限する場合は、inputmodeで制御すること
+        - typeだと入力範囲が極端に制限される可能性があるため非推奨
+      - バリデーションのタイミングはあらかじめ確認しておくこと
+      - CMSのプラグインなどによってはhtmlの構成に制限があるため、あらかじめ確認しておくこと
+    </div>
+  </div>
+</div>
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 48px;
+  }
+
+  .sb-section-title {
+    margin-bottom: 32px;
+  }
+
+  .sb-section-item-heading {
+    padding-top: 20px !important;
+    padding-bottom: 5px !important;
+    margin: 0 !important;
+  }
+
+  `}
+</style>

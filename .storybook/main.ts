@@ -3,8 +3,8 @@ import path from 'path'
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   "stories": [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    "../src/stories/**/*.mdx",
+    "../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
 
   "addons": [
@@ -26,17 +26,20 @@ const config = {
     ${`
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+      <link href="css/normalize.css" rel="stylesheet">
     `}
   `,
 
   "viteFinal": async (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@stories': path.resolve(__dirname, '../stories'),
+      '@stories': path.resolve(__dirname, '../src/stories'),
+      '@utility': path.resolve(__dirname, '../src/utility'),
     }
     return config
   },
+  staticDirs: ['../src/assets'],
 
   docs: {
     autodocs: true
