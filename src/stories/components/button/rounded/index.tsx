@@ -26,21 +26,38 @@ export const Button = ({
   ...props
 }) => {
   return (
-    <button
-      type="button"
-      className={clsx(
-        'button',
-        getValueClass(style),
-        getValueClass(size),
-        getValueClass(color),
-        {'-icon' : icon !== '-'}, getValueClass(icon),
-        getValueClass(file)
-      )}
-      aria-disabled={status === 'disabled' ? true : false}
-      {...props}
-      dangerouslySetInnerHTML={{__html: getLabelTemplate(label)}}
-    >
-    </button>
+    <div className='flex flex-col gap-4'>
+      <button
+        type="button"
+        className={clsx(
+          'button',
+          getValueClass(style),
+          getValueClass(size),
+          getValueClass(color),
+          {'-icon' : icon !== '-'}, getValueClass(icon),
+          getValueClass(file)
+        )}
+        aria-disabled={status === 'disabled' ? true : false}
+        {...props}
+        dangerouslySetInnerHTML={{__html: getLabelTemplate(label)}}
+      >
+      </button>
+      <a
+        href="null"
+        className={clsx(
+          'button',
+          getValueClass(style),
+          getValueClass(size),
+          getValueClass(color),
+          {'-icon' : icon !== '-'}, getValueClass(icon),
+          getValueClass(file)
+        )}
+        aria-disabled={status === 'disabled' ? true : false}
+        {...props}
+        dangerouslySetInnerHTML={{__html: getLabelTemplate(label)}}
+      >
+      </a>
+    </div>
   )
 }
 

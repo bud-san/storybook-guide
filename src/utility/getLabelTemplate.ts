@@ -1,12 +1,12 @@
-export const getLabelTemplate = (lengthType:string) => {
-  switch (lengthType) {
+export const getLabelTemplate = (val:string) => {
+  switch (val) {
     case 'short':
       return 'サンプル'
     case 'long':
       return 'サンプルサンプルサンプルサンプルサンプル'
     case 'multiline':
-      return 'サンプル<br />サンプル'
+      return 'サンプルサンプル<br />サンプル'
     default:
-      return '文字数が選択されてないです'
+      return val
   }
 }

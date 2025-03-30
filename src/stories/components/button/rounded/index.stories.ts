@@ -5,6 +5,7 @@ import { Button, argOptions } from '.'
  * シンプルな角丸ボタン。
  *
  * - アイコン2タイプ対応
+ * - buttonタグ（上）とaタグ（下）に対応
  * - 改行対応
  */
 

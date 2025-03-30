@@ -1,25 +1,28 @@
 .button {
   --button-rounded-text: #fff;
   --button-rounded-bg-color: #000;
-  --button-rounded-border-color: #000;
+  --button-rounded-border-color: var(--button-rounded-bg-color);
   --button-rounded-hover-text: #fff;
   --button-rounded-hover-bg-color: #000;
-  --button-rounded-hover-border-color: #000;
-  --button-rounded-fontsize: 14px;
-  --button-rounded-padding-block: 11px;
-  --button-rounded-padding-inline: 20px;
-  --button-rounded-gap: 10px;
-  --button-rounded-icon-fontsize: 14px;
+  --button-rounded-hover-border-color: var(--button-rounded-hover-bg-color);
+  --button-rounded-fontsize: 1rem;
+  --button-rounded-padding-block: 15px;
+  --button-rounded-padding-left: 60px;
+  --button-rounded-padding-right: var(--button-rounded-padding-left);
+  --button-rounded-gap: 8px;
+  --button-rounded-icon-fontsize: calc(var(--button-rounded-fontsize) * 1.4);
   --button-rounded-icon-content: none;
-  --button-rounded-file-fontsize: 18px;
+  --button-rounded-file-fontsize: calc(var(--button-rounded-fontsize) * 1.2);
+  --button-rounded-file-right: 30px;
   --button-rounded-file-content: none;
 
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
   cursor: pointer;
-  border-radius: 3em;
+  border-radius: 999px;
   font-weight: 700;
   line-height: 1.4;
   font-family: 'Noto Sans JP', Helvetica, Arial, sans-serif;
@@ -27,7 +30,7 @@
   text-decoration: none;
 
   font-size: var(--button-rounded-fontsize);
-  padding: var(--button-rounded-padding-block) var(--button-rounded-padding-inline);
+  padding: var(--button-rounded-padding-block) var(--button-rounded-padding-right) var(--button-rounded-padding-block) var(--button-rounded-padding-left);
   gap: var(--button-rounded-gap);
   color: var(--button-rounded-text);
   background-color: var(--button-rounded-bg-color);
@@ -36,13 +39,13 @@
   &:hover{
     color: var(--button-rounded-hover-text);
     background-color: var(--button-rounded-hover-bg-color);
-    border-color: var(--button-rounded-hover-border-color);
   }
   &::before, &::after{
     font-family: 'Material Symbols Outlined';
-    font-weight: normal;
+    font-weight: 200;
     font-style: normal;
     color: currentColor;
+    line-height: 1;
   }
   &::before{
     content: var(--button-rounded-icon-content);
@@ -51,16 +54,19 @@
   &::after{
     content: var(--button-rounded-file-content);
     font-size: var(--button-rounded-file-fontsize);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: var(--button-rounded-file-right);
+    padding-block-start: calc(var(--button-rounded-fontsize) / 8);
   }
 
   /* style */
   &.-fill {
     --button-rounded-text: #fff;
     --button-rounded-bg-color: #000;
-    --button-rounded-border-color: #000;
     --button-rounded-hover-text: #000;
     --button-rounded-hover-bg-color: transparent;
-    --button-rounded-hover-border-color: #000;
     &.-white{
       --button-rounded-text: #000;
       --button-rounded-bg-color: #fff;
@@ -87,42 +93,56 @@
 
   /* size */
   &.-sm {
-    --button-rounded-fontsize: 12px;
-    --button-rounded-padding-block: 10px;
-    --button-rounded-padding-inline: 16px;
-  }
-  &.-md {
-    --button-rounded-fontsize: 14px;
-    --button-rounded-padding-block: 11px;
-    --button-rounded-padding-inline: 20px;
+    --button-rounded-gap: 6px;
+    --button-rounded-fontsize: 0.75rem;
+    --button-rounded-padding-block: 12px;
+    --button-rounded-padding-left: 30px;
+    --button-rounded-file-right: 15px;
   }
   &.-lg {
-    --button-rounded-fontsize: 16px;
-    --button-rounded-padding-block: 12px;
-    --button-rounded-padding-inline: 24px;
+    --button-rounded-gap: 10px;
+    --button-rounded-fontsize: 1.125rem;
+    --button-rounded-padding-block: 20px;
+    --button-rounded-padding-left: 80px;
+    --button-rounded-file-right: 30px;
   }
 
   /* icon */
-  &.-book::before{
+  &.-book{
     --button-rounded-icon-content: '\e0e0';
-    --button-rounded-icon-fontsize: 18px;
+    --button-rounded-icon-fontsize: calc(var(--button-rounded-fontsize) * 1.8);
+    &::before{
+      padding-block-start: calc(var(--button-rounded-fontsize) / 5);
+    }
   }
-  &.-doc::before{
+  &.-doc{
     --button-rounded-icon-content: '\e873';
+    &::before{
+      padding-block-start: calc(var(--button-rounded-fontsize) / 6);
+    }
   }
-  &.-search::before{
+  &.-search{
     --button-rounded-icon-content: '\e8b6';
+    &::before{
+      padding-block-start: calc(var(--button-rounded-fontsize) / 5);
+    }
   }
 
   /* file */
-  &.-zip::after{
+  &.-zip{
     --button-rounded-file-content: '\eb2c';
+    --button-rounded-padding-right: calc(var(--button-rounded-file-right) + var(--button-rounded-file-fontsize) + var(--button-rounded-gap) * 4)
   }
-  &.-pdf::after{
+  &.-pdf{
     --button-rounded-file-content: '\e415';
+    --button-rounded-padding-right: calc(var(--button-rounded-file-right) + var(--button-rounded-file-fontsize) + var(--button-rounded-gap) * 4)
   }
-  &.-external::after{
+  &.-external{
     --button-rounded-file-content: '\e89e';
+    --button-rounded-padding-right: calc(var(--button-rounded-file-right) + var(--button-rounded-file-fontsize) + var(--button-rounded-gap) * 4)
+  }
+  &[aria-disabled=true]{
+    opacity: 0.6;
   }
 }
 
