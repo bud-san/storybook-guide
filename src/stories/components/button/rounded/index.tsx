@@ -30,7 +30,7 @@ export const Button = ({
       <button
         type="button"
         className={clsx(
-          'button',
+          'button-rounded',
           getValueClass(style),
           getValueClass(size),
           getValueClass(color),
@@ -45,7 +45,7 @@ export const Button = ({
       <a
         href="null"
         className={clsx(
-          'button',
+          'button-rounded',
           getValueClass(style),
           getValueClass(size),
           getValueClass(color),

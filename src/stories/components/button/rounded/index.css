@@ -1,4 +1,4 @@
-.button {
+.button-rounded {
   --button-rounded-text: #fff;
   --button-rounded-bg-color: #000;
   --button-rounded-border-color: var(--button-rounded-bg-color);
@@ -6,6 +6,7 @@
   --button-rounded-hover-bg-color: #000;
   --button-rounded-hover-border-color: var(--button-rounded-hover-bg-color);
   --button-rounded-fontsize: 1rem;
+  --button-rounded-lineheight: 1.4;
   --button-rounded-padding-block: 15px;
   --button-rounded-padding-left: 60px;
   --button-rounded-padding-right: var(--button-rounded-padding-left);
@@ -24,12 +25,11 @@
   cursor: pointer;
   border-radius: 999px;
   font-weight: 700;
-  line-height: 1.4;
-  font-family: 'Noto Sans JP', Helvetica, Arial, sans-serif;
   transition: all .2s ease-in-out;
   text-decoration: none;
 
   font-size: var(--button-rounded-fontsize);
+  line-height: var(--button-rounded-lineheight);
   padding: var(--button-rounded-padding-block) var(--button-rounded-padding-right) var(--button-rounded-padding-block) var(--button-rounded-padding-left);
   gap: var(--button-rounded-gap);
   color: var(--button-rounded-text);

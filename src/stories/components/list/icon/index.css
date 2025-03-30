@@ -1,0 +1,49 @@
+.list-icon {
+  --list-icon-color: var(--base-color-text);
+  --list-icon-fontsize: var(--base-fontsize);
+  --list-icon-lineheight: var(--base-lineheight);
+  --list-icon-icon-color: var(--base-color-primary);
+  --list-icon-icon-size: 0.75rem;
+  --list-icon-icon-content: '\e5e1';
+  --list-icon-margin-block: 5px 8px;
+  --list-icon-padding-block-start: 10px;
+  --list-icon-gap: 6px;
+
+  line-height: var(--list-icon-lineheight);
+  color: var(--list-icon-color);
+  font-size: var(--list-icon-fontsize);
+  list-style: none;
+
+  /* style */
+  &.-arrow {
+    --list-icon-icon-content: '\e5e1';
+  }
+  &.-check {
+    --list-icon-icon-content: '\e5ca';
+    --list-icon-icon-size: 1.125rem;
+  }
+
+  .list-icon{
+    padding-inline-start: calc(var(--list-icon-fontsize) / 2 - var(--list-icon-icon-size) / 2);
+    margin-block: var(--list-icon-margin-block);
+  }
+  .item{
+    position: relative;
+    padding-inline-start: calc(var(--list-icon-icon-size) + var(--list-icon-gap));
+    padding-block-start: var(--list-icon-padding-block-start);
+    &::before{
+      position: absolute;
+      font-family: 'Material Symbols Outlined';
+      font-weight: 400;
+      font-style: normal;
+      content: var(--list-icon-icon-content);
+      color: var(--list-icon-icon-color);
+      line-height: 1;
+      top: calc(var(--list-icon-padding-block-start) + ((var(--list-icon-fontsize) * var(--list-icon-lineheight)) - var(--list-icon-fontsize)) + (var(--list-icon-fontsize) / 3));
+      transform: translateY(-50%);
+      left: 0;
+      font-size: var(--list-icon-icon-size);
+    }
+  }
+}
+

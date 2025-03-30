@@ -1,0 +1,11 @@
+:root{
+  --base-color-text: #333;
+  --base-color-primary: #ec681c;
+  --base-fontsize: 1rem;
+  --base-lineheight: 1.5;
+}
+html, body{
+  font-family: 'Noto Sans JP', Helvetica, Arial, sans-serif;
+  color: var(--base-color-text);
+  font-size: var(--base-fontsize);
+}
