@@ -17,12 +17,12 @@ export const LoggedOut = {};
 export const LoggedIn = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const loginButton = canvas.getByRole('button', { name: /Log in/i });
-    await expect(loginButton).toBeInTheDocument();
+    const loginButton = canvas.getByRole('button', { name: /Log in/i }); // 「Log in」ボタン を取得。
+    await expect(loginButton).toBeInTheDocument(); // ボタンが表示されているかチェック。
     await userEvent.click(loginButton);
-    await expect(loginButton).not.toBeInTheDocument();
+    await expect(loginButton).not.toBeInTheDocument(); // 「Log in」ボタンが消えたかチェック。
 
-    const logoutButton = canvas.getByRole('button', { name: /Log out/i });
+    const logoutButton = canvas.getByRole('button', { name: /Log out/i }); // 「Log out」ボタンが表示されているかチェック。
     await expect(logoutButton).toBeInTheDocument();
   },
 };
